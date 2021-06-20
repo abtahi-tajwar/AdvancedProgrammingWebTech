@@ -7,7 +7,7 @@
     <title>Product - Home</title>
 </head>
 <body>
-    <form method="POST" action="/product/{{$product[id]}}" enctype="multipart/form-data">
+    <form method="POST" action="/product/{{$product['id']}}" enctype="multipart/form-data">
         {{-- @method('PUT') --}}
 		{{-- @csrf --}}
         <input type="hidden" name="_method" value="PUT">
@@ -26,7 +26,7 @@
 		</tr>
 		<tr>
 			<td></td>
-			<td><input type="submit" name="insert" value="insert"></td>
+			<td><input type="submit" name="update" value="Update"></td>
 		</tr>
 	</table>
 	</form>

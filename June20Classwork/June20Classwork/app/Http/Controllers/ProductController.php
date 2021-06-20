@@ -35,12 +35,21 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        $imagename = "unknown";
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $imagename = $file->getClientOriginalName();
+        }else{
+            echo "File not found!";
+        }
         product::insert([
             'pname'=>$request->pname,
             'brand'=>$request->brand,
-            'pimage'=>'helloo'
+            'pimage'=>$imagename
         ]);
+
         echo "Product Inserted Sucessfully";
+        return redirect('/product');
     }
 
     /**
@@ -74,7 +83,13 @@ class ProductController extends Controller
      */
     public function update(Request $request, product $product)
     {
-        echo "running on put";
+        $product = product::find($product['id']);
+        $product->pname = $request->pname;
+        $product->brand = $request->brand;
+        $product->save();
+        echo "Product Updated Sucessfully";
+        return redirect('/product');
+
     }
 
     /**
@@ -85,6 +100,7 @@ class ProductController extends Controller
      */
     public function destroy(product $product)
     {
-        //
+        $product->delete();
+        return redirect('/product');
     }
 }
