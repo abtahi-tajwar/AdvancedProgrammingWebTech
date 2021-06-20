@@ -4,10 +4,10 @@
 	<title>User List</title>
 </head>
 <body>
-     
+
     <a href='/home'> Back </a> |
-    <a href='/logout'> logout</a> 
-    
+    <a href='/logout'> logout</a>
+
     <h3> User Details</h3>
 	<table border="1">
 		<tr>
@@ -16,15 +16,15 @@
         </tr>
         <tr>
 			<td>Name</td>
-            <td>{{$user['username']}}</td>
+            <td>{{$user['name']}}</td>
         </tr>
         <tr>
             <td>Password</td>
-			<td>{{$user['password']}}</td>
+			<td>{{$user['pass']}}</td>
         </tr>
         <tr>
 			<td>Cgpa</td>
-            <td>{{$user['cgpa']}}</td>
+            <td>{{$user['email']}}</td>
         </tr>
         <tr>
             <td>Type</td>

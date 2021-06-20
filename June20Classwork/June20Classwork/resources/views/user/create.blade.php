@@ -5,12 +5,12 @@
 </head>
 <body>
     <a href='/home'> Back </a> |
-    <a href='/logout'> logout</a> 
-  
+    <a href='/logout'> logout</a>
+
     <h3> Create New User</h3>
 
 	<form method="post" enctype="multipart/form-data">
-		@csrf
+		{{-- @csrf --}}
 	<table>
 		<tr>
 			<td>Username</td>

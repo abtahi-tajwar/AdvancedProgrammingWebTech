@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Product;
+use App\Models\product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -14,7 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        return view('product.index')->with('productlist',product::all());
     }
 
     /**
@@ -24,7 +24,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('product.create');
     }
 
     /**
@@ -35,50 +35,55 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        product::insert([
+            'pname'=>$request->pname,
+            'brand'=>$request->brand,
+            'pimage'=>'helloo'
+        ]);
+        echo "Product Inserted Sucessfully";
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Product  $product
+     * @param  \App\Models\product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(product $product)
     {
-        //
+        return view('product.show')->with('product',$product);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Product  $product
+     * @param  \App\Models\product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit(product $product)
     {
-        //
+        return view('product.edit')->with('product',$product);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Product  $product
+     * @param  \App\Models\product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, product $product)
     {
-        //
+        echo "running on put";
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Product  $product
+     * @param  \App\Models\product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(product $product)
     {
         //
     }
